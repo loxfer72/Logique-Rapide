@@ -60,3 +60,12 @@ def find_keys_by_value(d: dict, target) -> list:
 
 product_stock = {"laptop": 0, "mouse": 5, "keyboard": 0, "monitor": 3}
 print(find_keys_by_value(product_stock, 0)) # ["laptop", "keyboard"]
+
+
+#fonction qui crée un objet à partir de deux tableaux
+def create_object_from_arrays(keys: list, values: list) -> dict:
+    return dict(zip(keys, values))
+
+player_names = ["Alice", "Bob", "Charlie"]
+scores = [100, 85, 90]
+print(create_object_from_arrays(player_names, scores)) # {"Alice": 100, "Bob": 85, "Charlie": 90}

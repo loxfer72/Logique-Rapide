@@ -1,4 +1,5 @@
 import re
+import unicodedata
 
 def character_count(string: str) -> str:
     return len(string.replace(' ', ''))
@@ -62,10 +63,18 @@ def extract_initials(full_name: str) -> str:
     return ".".join(re.findall(r"(?:^|(?<=[\s-]))\w", full_name.upper()))
 
 print("fonction 10 extraction des initiales d'un nom complet :")
-print(extract_initials("jean-pierre dupont"))
+print(extract_initials("jean-pierre dupont"), '\n')
 
 def mask_string(string: str, n: int) -> str:
     return re.sub(r".(?=.{" + str(n) + r"})", "*", string)
 
 print("fonction 11 masquage des caractères jusqu'au N derniers :")
-print(mask_string("1234567890123456", 4))
+print(mask_string("1234567890123456", 4), '\n')
+
+def is_palindrome(string: str) -> bool:
+    normalized = unicodedata.normalize("NFD", string.lower())
+    cleaned = re.sub(r"[^a-z]", "", normalized)
+    return cleaned == cleaned[::-1]
+
+print("fonction 12 Vérification palindrome :")
+print(is_palindrome("Eh ! ça va la vache ?"))

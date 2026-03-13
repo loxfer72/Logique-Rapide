@@ -52,8 +52,8 @@ print("fonction 8 inversement des majuscule et minuscules :")
 print(swap_case("Inversement Des Majuscules Et Minuscules"), '\n')
 
 #à noter que cette fonction possède un problème de conception sur les mots possédant naturellement 2 lettres collées
-def remove_consecutive_duplicates(s: str) -> str:
-    return re.sub(r"(.)\1+", r"\1", s)
+def remove_consecutive_duplicates(string: str) -> str:
+    return re.sub(r"(.)\1+", r"\1", string)
 
 print("fonction 9 retire les caractères en double consécutifs :")
 print(remove_consecutive_duplicates("Bonjouuuur !!! J'ai besoiiiin d'aide...."), '\n')
@@ -63,3 +63,9 @@ def extract_initials(full_name: str) -> str:
 
 print("fonction 10 extraction des initiales d'un nom complet :")
 print(extract_initials("jean-pierre dupont"))
+
+def mask_string(string: str, n: int) -> str:
+    return re.sub(r".(?=.{" + str(n) + r"})", "*", string)
+
+print("fonction 11 masquage des caractères jusqu'au N derniers :")
+print(mask_string("1234567890123456", 4))

@@ -195,3 +195,30 @@ user_input = {
     "email": "marie@email.com"
 }
 print(validate_object(user_input, user_schema))  # True
+
+
+#fonction qui compare les modifications entre deux objets
+def compare_differences(old: dict, new: dict) -> dict:
+    result = {}
+    all_keys = old.keys() | new.keys()
+    for k in all_keys:
+        if k not in old:
+            result[k] = {"type": "added", "new": new[k]}
+        elif k not in new:
+            result[k] = {"type": "removed", "old": old[k]}
+        elif old[k] != new[k]:
+            result[k] = {"type": "modified", "old": old[k], "new": new[k]}
+    return result
+
+old_profile = {
+    "name": "Jean Dupont",
+    "email": "jean@email.com",
+    "age": 30
+}
+new_profile = {
+    "name": "Jean Dupont",
+    "email": "jean.dupont@email.com",
+    "age": 31,
+    "phone": "0123456789"
+}
+print(compare_differences(old_profile, new_profile)) # {"email": {"type": "modified", ...}, "age": {"type": "modified", ...}, "phone": {"type": "added", ...}}

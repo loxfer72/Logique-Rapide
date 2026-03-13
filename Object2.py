@@ -35,3 +35,20 @@ def filter_object(d: dict, func) -> dict:
 
 inventory = {"laptop": 0, "smartphone": 5, "tablet": 0, "headphones": 8}
 print(filter_object(inventory, lambda stock: stock == 0)) # {"laptop": 0, "tablet": 0}
+
+
+#fonction qui convertit un objet plat en objet imbriqué en utilisant les points comme séparateurs
+def flat_to_nested(d: dict) -> dict:
+    result = {}
+    for key, value in d.items():
+        parent, child = key.split(".", 1)
+        result.setdefault(parent, {})[child] = value
+    return result
+
+flat_config = {
+    'app.name': 'MyApp',
+    'app.version': '1.0.0',
+    'database.host': 'localhost',
+    'database.port': 5432
+}
+print(flat_to_nested(flat_config)) # {'app': {'name': 'MyApp', 'version': '1.0.0'}, 'database': {'host': 'localhost', 'port': 5432}}

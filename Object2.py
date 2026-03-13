@@ -1,5 +1,6 @@
 from collections import Counter
 from urllib.parse import urlencode
+import statistics
 
 #fonction qui récupère toutes les valeurs d'un objet en tableau
 def get_values(d: dict) -> list:
@@ -237,3 +238,27 @@ search_params = {
     "inStock": True
 }
 print(object_to_url_params(search_params)) # query=ordinateur%20portable&maxPrice=1000&brand=Dell&inStock=true
+
+
+#fonction qui génère un résumé statistique d'un objet contenant des nombres
+def get_object_stats(d: dict) -> dict:
+    values = list(d.values())
+    n = len(values)
+    mean = sum(values) / n
+    variance = sum((x - mean) ** 2 for x in values) / n
+    return {
+        "basic": {
+            "min": min(values),
+            "max": max(values),
+            "average": mean,
+            "total": sum(values)
+        },
+        "advanced": {
+            "median": statistics.median(values),
+            "variance": variance,
+            "standardDeviation": round(variance ** 0.5, 2)
+        }
+    }
+
+monthly_revenues = {"january": 1000, "february": 1200, "march": 900, "april": 1500}
+print(get_object_stats(monthly_revenues))

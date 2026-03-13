@@ -11,3 +11,9 @@ def salutation(name: str) -> str:
 
 print("fonction 2 :")
 print(salutation("jean-pierre"),'\n')
+
+def ends_with_exclamation_mark(string: str) -> str:
+    return True if re.search(r'!$', string) is not None else False
+
+print("fonction 3 :")
+print(ends_with_exclamation_mark("Je suis très satisfait !"),'\n')

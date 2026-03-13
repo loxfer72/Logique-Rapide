@@ -85,3 +85,18 @@ order_statuses = {
     "order5": "pending"
 }
 print(count_values(order_statuses)) # {"pending": 3, "delivered": 1, "cancelled": 1}
+
+
+#fonction qui extrait certaines propriétés d'un objet
+def extract_properties(d: dict, keys: list) -> dict:
+    return {k: d[k] for k in keys if k in d}
+
+user_profile = {
+    "name": "Jean Martin",
+    "email": "jean@email.com",
+    "password": "secret123",
+    "age": 35,
+    "address": "123 rue Principal"
+}
+public_info = ["name", "age"]
+print(extract_properties(user_profile, public_info)) # {"name": "Jean Martin", "age": 35}

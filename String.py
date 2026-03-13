@@ -90,4 +90,10 @@ def truncate(string: str, n: int) -> str:
     return string[:n - 3].rstrip() + "..." if len(string) > n else string
 
 print("fonction 13 Tronque un string en laissant '...' :")
-print(truncate("Ceci est une très longue description d'un produit", 20))
+print(truncate("Ceci est une très longue description d'un produit", 20), '\n')
+
+def capitalize_words(s: str) -> str:
+    return s.title()
+
+print("fonction 14 Capitalise chaque première lettre des mots d'un string :")
+print(capitalize_words("bienvenue sur notre site web"))

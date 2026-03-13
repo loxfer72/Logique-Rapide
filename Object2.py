@@ -52,3 +52,11 @@ flat_config = {
     'database.port': 5432
 }
 print(flat_to_nested(flat_config)) # {'app': {'name': 'MyApp', 'version': '1.0.0'}, 'database': {'host': 'localhost', 'port': 5432}}
+
+
+#fonction qui trouve les clés d'un objet ayant une valeur spécifique
+def find_keys_by_value(d: dict, target) -> list:
+    return [k for k, v in d.items() if v == target]
+
+product_stock = {"laptop": 0, "mouse": 5, "keyboard": 0, "monitor": 3}
+print(find_keys_by_value(product_stock, 0)) # ["laptop", "keyboard"]

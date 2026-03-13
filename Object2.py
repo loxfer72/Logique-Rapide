@@ -150,3 +150,19 @@ config = {
     }
 }
 print(find_value_in_object(config, "dark"))   # ["app", "settings", "theme"]
+
+
+#fonction qui groupe les objets par une propriété spécifique
+def group_by_property(items: list, key: str) -> dict:
+    result = {}
+    for item in items:
+        result.setdefault(item[key], []).append(item)
+    return result
+
+students = [
+    {"name": "Alice", "level": "Débutant"},
+    {"name": "Bob", "level": "Intermédiaire"},
+    {"name": "Charlie", "level": "Débutant"},
+    {"name": "David", "level": "Avancé"}
+]
+print(group_by_property(students, "level")) # {"Débutant": [{"name": "Alice", ...}, {"name": "Charlie", ...}], ...}

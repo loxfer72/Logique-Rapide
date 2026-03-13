@@ -1,4 +1,5 @@
 from collections import Counter
+from urllib.parse import urlencode
 
 #fonction qui récupère toutes les valeurs d'un objet en tableau
 def get_values(d: dict) -> list:
@@ -222,3 +223,17 @@ new_profile = {
     "phone": "0123456789"
 }
 print(compare_differences(old_profile, new_profile)) # {"email": {"type": "modified", ...}, "age": {"type": "modified", ...}, "phone": {"type": "added", ...}}
+
+
+#fonction qui convertit un objet en chaîne de paramètres d'URL
+def object_to_url_params(d: dict) -> str:
+    normalized = {k: str(v).lower() if isinstance(v, bool) else v for k, v in d.items()}
+    return urlencode(normalized, quote_via=__import__('urllib.parse', fromlist=['quote']).quote)
+
+search_params = {
+    "query": "ordinateur portable",
+    "maxPrice": 1000,
+    "brand": "Dell",
+    "inStock": True
+}
+print(object_to_url_params(search_params)) # query=ordinateur%20portable&maxPrice=1000&brand=Dell&inStock=true

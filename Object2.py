@@ -1,3 +1,5 @@
+from collections import Counter
+
 #fonction qui récupère toutes les valeurs d'un objet en tableau
 def get_values(d: dict) -> list:
     return list(d.values())
@@ -69,3 +71,17 @@ def create_object_from_arrays(keys: list, values: list) -> dict:
 player_names = ["Alice", "Bob", "Charlie"]
 scores = [100, 85, 90]
 print(create_object_from_arrays(player_names, scores)) # {"Alice": 100, "Bob": 85, "Charlie": 90}
+
+
+#fonction qui compte les occurrences de valeurs dans un objet
+def count_values(d: dict) -> dict:
+    return dict(Counter(d.values()))
+
+order_statuses = {
+    "order1": "pending",
+    "order2": "delivered",
+    "order3": "pending",
+    "order4": "cancelled",
+    "order5": "pending"
+}
+print(count_values(order_statuses)) # {"pending": 3, "delivered": 1, "cancelled": 1}

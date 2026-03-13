@@ -77,4 +77,11 @@ def is_palindrome(string: str) -> bool:
     return cleaned == cleaned[::-1]
 
 print("fonction 12 Vérification palindrome :")
-print(is_palindrome("Eh ! ça va la vache ?"))
+print(is_palindrome("Eh ! ça va la vache ?"), '\n')
+
+def longest_sequence(string: str) -> str:
+    matches = re.finditer(r"(.)\1*", string)
+    return max(matches, key=lambda m: len(m.group())).group()
+
+print("fonction 12 Recherche de la plus longue séquence de caractères identiques :")
+print(longest_sequence("aaabbbbbcccc"))   

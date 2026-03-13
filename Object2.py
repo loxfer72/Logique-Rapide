@@ -124,3 +124,29 @@ def create_object_from_pairs(pairs: list) -> dict:
 
 product_pairs = [["pommes", 2.5], ["bananes", 1.8], ["oranges", 2.2]]
 print(create_object_from_pairs(product_pairs)) # {"pommes": 2.5, "bananes": 1.8, "oranges": 2.2}
+
+#fonction qui recherche une valeur dans un objet imbriqué
+def find_value_in_object(d: dict, target, path: list = []) -> list:
+    for k, v in d.items():
+        current_path = path + [k]
+        if v == target:
+            return current_path
+        if isinstance(v, dict):
+            result = find_value_in_object(v, target, current_path)
+            if result:
+                return result
+    return []
+
+config = {
+    "app": {
+        "name": "MonApp",
+        "settings": {
+            "theme": "dark",
+            "notifications": {
+                "email": True,
+                "push": False
+            }
+        }
+    }
+}
+print(find_value_in_object(config, "dark"))   # ["app", "settings", "theme"]

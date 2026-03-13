@@ -116,3 +116,11 @@ def find_max_value(d: dict) -> int:
 
 game_scores = {"level1": 850, "level2": 920, "level3": 880, "level4": 1020}
 print(find_max_value(game_scores))  # 1020
+
+
+#fonction qui créé un objet à partir d'un tableau de paires clé-valeur
+def create_object_from_pairs(pairs: list) -> dict:
+    return dict(pairs)
+
+product_pairs = [["pommes", 2.5], ["bananes", 1.8], ["oranges", 2.2]]
+print(create_object_from_pairs(product_pairs)) # {"pommes": 2.5, "bananes": 1.8, "oranges": 2.2}

@@ -166,3 +166,32 @@ students = [
     {"name": "David", "level": "Avancé"}
 ]
 print(group_by_property(students, "level")) # {"Débutant": [{"name": "Alice", ...}, {"name": "Charlie", ...}], ...}
+
+
+#fonction qui vérifie si un objet correspond à un schéma spécifique
+#ajout d'un dictionnaire de type pour compatibilité python
+TYPE_MAP = {
+    "string": str,
+    "number": (int, float),
+    "boolean": bool,
+    "list": list,
+    "dict": dict
+}
+
+def validate_object(obj: dict, schema: dict) -> bool:
+    return all(
+        k in obj and isinstance(obj[k], TYPE_MAP[v])
+        for k, v in schema.items()
+    )
+
+user_schema = {
+    "name": "string",
+    "age": "number",
+    "email": "string"
+}
+user_input = {
+    "name": "Marie",
+    "age": 25,
+    "email": "marie@email.com"
+}
+print(validate_object(user_input, user_schema))  # True

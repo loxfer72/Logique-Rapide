@@ -49,4 +49,11 @@ def swap_case(string: str) -> str:
     return string.swapcase()
 
 print("fonction 8 inversement des majuscule et minuscules :")
-print(swap_case("Inversement Des Majuscules Et Minuscules"))
+print(swap_case("Inversement Des Majuscules Et Minuscules"), '\n')
+
+#à noter que cette fonction possède un problème de conception sur les mots possédant naturellement 2 lettres collées
+def remove_consecutive_duplicates(s: str) -> str:
+    return re.sub(r"(.)\1+", r"\1", s)
+
+print("fonction 9 retire les caractères en double consécutifs :")
+print(remove_consecutive_duplicates("Bonjouuuur !!! J'ai besoiiiin d'aide...."))

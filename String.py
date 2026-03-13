@@ -56,4 +56,10 @@ def remove_consecutive_duplicates(s: str) -> str:
     return re.sub(r"(.)\1+", r"\1", s)
 
 print("fonction 9 retire les caractères en double consécutifs :")
-print(remove_consecutive_duplicates("Bonjouuuur !!! J'ai besoiiiin d'aide...."))
+print(remove_consecutive_duplicates("Bonjouuuur !!! J'ai besoiiiin d'aide...."), '\n')
+
+def extract_initials(full_name: str) -> str:
+    return ".".join(re.findall(r"(?:^|(?<=[\s-]))\w", full_name.upper()))
+
+print("fonction 10 extraction des initiales d'un nom complet :")
+print(extract_initials("jean-pierre dupont"))

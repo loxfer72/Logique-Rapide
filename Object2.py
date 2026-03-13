@@ -100,3 +100,11 @@ user_profile = {
 }
 public_info = ["name", "age"]
 print(extract_properties(user_profile, public_info)) # {"name": "Jean Martin", "age": 35}
+
+
+#fonction qui trie les propriétés d'un objet par valeur
+def sort_object_by_value(d: dict) -> dict:
+    return dict(sorted(d.items(), key=lambda x: x[1]))
+
+player_scores = {"Alice": 85, "Bob": 92, "Charlie": 78, "David": 95}
+print(sort_object_by_value(player_scores)) # {"Charlie": 78, "Alice": 85, "Bob": 92, "David": 95}

@@ -262,3 +262,18 @@ def get_object_stats(d: dict) -> dict:
 
 monthly_revenues = {"january": 1000, "february": 1200, "march": 900, "april": 1500}
 print(get_object_stats(monthly_revenues))
+"""
+{
+ basic: {
+   min: 900,
+   max: 1500,
+   average: 1150,
+   total: 4600
+ },
+ advanced: {
+   median: 1100,
+   variance: 52500,
+   standardDeviation: 229.13
+ }
+}
+"""

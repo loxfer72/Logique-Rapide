@@ -108,3 +108,11 @@ def sort_object_by_value(d: dict) -> dict:
 
 player_scores = {"Alice": 85, "Bob": 92, "Charlie": 78, "David": 95}
 print(sort_object_by_value(player_scores)) # {"Charlie": 78, "Alice": 85, "Bob": 92, "David": 95}
+
+
+#fonction qui trouve la valeur maximale dans un objet de nombres
+def find_max_value(d: dict) -> int:
+    return max(d.values())
+
+game_scores = {"level1": 850, "level2": 920, "level3": 880, "level4": 1020}
+print(find_max_value(game_scores))  # 1020

@@ -84,4 +84,10 @@ def longest_sequence(string: str) -> str:
     return max(matches, key=lambda m: len(m.group())).group()
 
 print("fonction 12 Recherche de la plus longue séquence de caractères identiques :")
-print(longest_sequence("aaabbbbbcccc"))   
+print(longest_sequence("aaabbbbbcccc"), '\n')
+
+def truncate(string: str, n: int) -> str:
+    return string[:n - 3].rstrip() + "..." if len(string) > n else string
+
+print("fonction 13 Tronque un string en laissant '...' :")
+print(truncate("Ceci est une très longue description d'un produit", 20))

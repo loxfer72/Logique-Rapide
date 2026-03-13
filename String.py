@@ -37,4 +37,10 @@ def snake_to_camel(string: str) -> str:
     return words[0] + "".join(word.capitalize() for word in words[1:])
 
 print("fonction 6 format un string de snake_case à camelCase :")
-print(snake_to_camel("user_first_name"))
+print(snake_to_camel("user_first_name"), '\n')
+
+def vowel_occurrences(s: str) -> int:
+    return sum(1 for c in s.lower() if c in "aeiouy")
+
+print("fonction 7 nombre d'occurence des voyelles :")
+print(vowel_occurrences("combien il y a t-il de voyelles dans cette phrase"))

@@ -27,3 +27,11 @@ def merge_objects(d1: dict, d2: dict) -> dict:
 store1_sales = {"january": 1000, "february": 1200, "march": 900}
 store2_sales = {"january": 800, "february": 950, "march": 1100}
 print(merge_objects(store1_sales, store2_sales)) # {"january": 1800, "february": 2150, "march": 2000}
+
+
+#fonction qui filtre un objet selon une condition sur les valeurs
+def filter_object(d: dict, func) -> dict:
+    return {k: v for k, v in d.items() if func(v)}
+
+inventory = {"laptop": 0, "smartphone": 5, "tablet": 0, "headphones": 8}
+print(filter_object(inventory, lambda stock: stock == 0)) # {"laptop": 0, "tablet": 0}
